@@ -16,7 +16,7 @@ auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 client = Client(account_sid, auth_token)
 
 # Get agent response
-user_message = "Karachi weather outfit suggestion today"
+user_message = "NYC Outfit Rec"
 result = agent.invoke({"messages": [{"role": "user", "content": user_message}]})
 agent_reply = result['messages'][-1].content
 
