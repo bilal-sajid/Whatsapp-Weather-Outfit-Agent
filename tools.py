@@ -28,6 +28,7 @@ def get_geolocation(city: str):
 
     return {"lat": data[0]["lat"], "lon": data[0]["lon"]}
 
+
 def get_today_weather(lat: float, lon: float):
     """
     Get today's weather given latitude and longitude.
@@ -48,3 +49,7 @@ def get_today_weather(lat: float, lon: float):
 
     daily_weather_summary = summarize_today(data["daily"][0])
     return daily_weather_summary
+
+
+
+# print(get_today_weather(24.8607, 67.0011))
