@@ -6,6 +6,7 @@ Environment variables are loaded from a .env file for authentication and recipie
 import os
 from dotenv import load_dotenv
 from twilio.rest import Client
+from agent import agent  # Import your agent
 
 load_dotenv()
 
@@ -14,9 +15,14 @@ auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 
 client = Client(account_sid, auth_token)
 
+# Get agent response
+user_message = "Outfit suggestions for Pakistan Weather today"
+result = agent.invoke({"messages": [{"role": "user", "content": user_message}]})
+agent_reply = result['messages'][-1].content
+
 message = client.messages.create(
     from_ = 'whatsapp:+14155238886',
-    body = 'Agent Message will be here',
+    body = agent_reply,
     to = os.getenv("TWILIO_WHATSAPP_TO")        # The whatsapp number you have registered
 )
 
