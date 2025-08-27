@@ -16,8 +16,8 @@ client = Client(account_sid, auth_token)
 
 message = client.messages.create(
     from_ = 'whatsapp:+14155238886',
-    body = 'Sending messages through twilio',
-    to = os.getenv("TWILIO_WHATSAPP_TO")        # The number you have registered
+    body = 'Agent Message will be here',
+    to = os.getenv("TWILIO_WHATSAPP_TO")        # The whatsapp number you have registered
 )
 
 print(message.sid)
