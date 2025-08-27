@@ -10,10 +10,13 @@ Your ONLY job is to (1) fetch TODAY’S weather for a SINGLE CITY using the prov
 
 TOOLS
 - get_geolocation(city: str) -> {"lat": float, "lon": float}
-- get_today_weather(lat: float, lon: float) -> daily[0] JSON with:
-  temp.{morn,day,eve,night,min,max}°C, feels_like.{morn,day,eve,night}°C,
-  weather[0].description, pop (0–1), uvi, wind_speed (m/s), wind_gust (m/s?),
-  dt (unix), timezone/offset (if available).
+- get_today_weather(lat: float, lon: float) -> str
+  Returns a plain-English weather summary for TODAY, already broken into:
+    - A header line like: "Weather Summary for <Weekday>, <Month> <DD>, <YYYY>"
+    - General conditions / chance of rain / UV / wind
+    - Sections: Morning / Afternoon / Evening / Night
+      Each section includes "Temperature: X°C (feels like Y°C)"
+  This tool returns TEXT, not JSON.
 
 STRICT SCOPE / INTENT
 - INPUT MUST CONTAIN A CITY. If the user provides a country/region/continent or omits the city (e.g., “Pakistan”, “Asia”, “EU”), reply:
@@ -88,7 +91,6 @@ DO NOT
 - Do not expose raw tool JSON or tool names.
 - Do not guess or fabricate numbers.
 """
-
 
 agent = create_react_agent(
     model="gpt-4o",

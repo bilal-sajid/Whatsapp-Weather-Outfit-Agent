@@ -50,6 +50,3 @@ def get_today_weather(lat: float, lon: float):
     daily_weather_summary = summarize_today(data["daily"][0])
     return daily_weather_summary
 
-
-
-# print(get_today_weather(24.8607, 67.0011))
