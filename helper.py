@@ -1,9 +1,17 @@
+# Basic helper functions (not tools that the agent has access to)
+
 from datetime import datetime
 
 def summarize_today(daily: dict) -> str:
     """
-    Turn OpenWeather daily forecast into a clear English summary, broken down into
-    Morning, Afternoon, Evening, Night. No outfit suggestions, just weather data.
+    Summarizes the daily weather forecast into a clear, human-readable English report.
+    The summary is broken down into Morning, Afternoon, Evening, and Night, providing temperature and "feels like" details for each period. It also includes general weather conditions, chance of rain, UV index (if available), and wind information.
+
+    Parameters:
+        daily (dict): A dictionary containing the daily weather data from OpenWeather, including temperature, feels_like, weather description, wind speed, wind gusts, probability of precipitation, and UV index.
+
+    Returns:
+        str: A formatted string summarizing the day's weather in English, suitable for display or messaging.
     """
     # Convert timestamp to readable date
     date = datetime.utcfromtimestamp(daily["dt"]).strftime("%A, %B %d, %Y")

@@ -1,3 +1,5 @@
+# Tools for the weather outfit agent to process user queries
+
 import os
 import requests
 from helper import summarize_today
@@ -9,9 +11,19 @@ OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 def get_geolocation(city: str):
     """
-    Get latitude & longitude for a given city using OpenWeatherMap Geocoding API.
-    Returns a dict with just lat/lon.
+    Fetches the geographical coordinates (latitude and longitude) for a given city using the OpenWeatherMap Geocoding API.
+    
+    Args:
+        city (str): The name of the city to look up.
+    
+    Returns:
+        dict: A dictionary containing the latitude ('lat') and longitude ('lon') of the city if found.
+              If the city is not found, returns a dictionary with an 'error' key and a descriptive message.
+    
+    Note:
+        Requires the global variable OPENWEATHER_API_KEY to be set with a valid OpenWeatherMap API key.
     """
+
     url = "http://api.openweathermap.org/geo/1.0/direct"
     params = {
         "q": city,
@@ -31,8 +43,19 @@ def get_geolocation(city: str):
 
 def get_today_weather(lat: float, lon: float):
     """
-    Get today's weather given latitude and longitude.
+    Retrieves and summarizes today's weather for a given latitude and longitude using the OpenWeatherMap API.
+
+    Args:
+        lat (float): Latitude of the location.
+        lon (float): Longitude of the location.
+
+    Returns:
+        dict: A summary of today's weather, as returned by the `summarize_today` function.
+
+    Note:
+        Requires the global variable `OPENWEATHER_API_KEY` to be set with a valid OpenWeatherMap API key.
     """
+
     url = "https://api.openweathermap.org/data/3.0/onecall"
 
     params = {

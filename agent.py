@@ -1,7 +1,5 @@
+# Defines a "Weather and Outfit Suggestion" agent for a single city using tool-based retrieval
 
-"""
-Simple agent using LangGraph which is given a tool
-"""
 from tools import get_geolocation, get_today_weather
 from langgraph.prebuilt import create_react_agent
 
@@ -94,7 +92,7 @@ DO NOT
 
 agent = create_react_agent(
     model="gpt-4o",
-    tools=[get_geolocation, get_today_weather],
+    tools=[get_geolocation, get_today_weather], # Connecting the tools available in tools.py 
     prompt=SYSTEM_INSTRUCTIONS
 )
 

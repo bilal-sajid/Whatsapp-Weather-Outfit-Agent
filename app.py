@@ -1,7 +1,11 @@
+# Flask application for handling WhatsApp messages via Twilio webhook.
+# Integrates with a "Weather Outfit Suggestion" agent to provide automated responses
+# based on user input received through WhatsApp.
+
 from flask import Flask, request, Response
 from twilio.twiml.messaging_response import MessagingResponse
 
-from agent import agent  # Import your agent
+from agent import agent  # Importing the "Weather Outfit Suggestion" Agent
 
 app = Flask(__name__)
 
