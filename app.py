@@ -16,7 +16,7 @@ def reply_whatsapp():
     resp = MessagingResponse()
 
     # Get agent response
-    user_message = "Karachi weather outfit suggestion today"
+    user_message = request.form.get('Body', '')  # Get WhatsApp message body
     result = agent.invoke({"messages": [{"role": "user", "content": user_message}]})
     agent_reply = result['messages'][-1].content
 
