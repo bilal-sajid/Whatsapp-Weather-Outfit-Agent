@@ -20,8 +20,8 @@ To run this project, you will need:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/bilal-sajid/whatsapp-weather-outfit-agent.git
-cd whatsapp-weather-outfit-agent
+git clone https://github.com/bilal-sajid/Whatsapp-Weather-Outfit-Agent.git
+cd Whatsapp-Weather-Outfit-Agent
 ```
 
 ### 2. Install dependencies
