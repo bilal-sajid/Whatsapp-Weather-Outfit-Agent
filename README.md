@@ -4,7 +4,7 @@
 This project is a `Weather Outfit Suggestion Agent`, accessible via WhatsApp using Flask and Twilio’s WhatsApp API. Users send a city name, and the agent responds with today’s forecast (morning, afternoon, evening, night) along with outfit advice based on temperature, rain, wind, and UV index.
 
 ## How it works
-1. A user sends a WhatsApp message (e.g., “Karachi” or “Outfits Karachi”).
+1. A user sends a WhatsApp message (e.g., “Paris” or “Outfits Paris").
 2. Twilio forwards the message to the Flask webhook (`/reply_whatsapp`).
 3. The webhook calls the Weather Outfit Agent, which fetches and summarizes today’s weather.
 4. Flask returns a TwiML response to Twilio, which delivers the weather summary and outfit recommendations back to the user on WhatsApp.
@@ -20,8 +20,8 @@ To run this project, you will need:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/bilal-sajid/weather-outfit-agent.git
-cd weather-outfit-agent
+git clone https://github.com/bilal-sajid/whatsapp-weather-outfit-agent.git
+cd whatsapp-weather-outfit-agent
 ```
 
 ### 2. Install dependencies
