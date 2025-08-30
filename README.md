@@ -6,9 +6,14 @@ This project is a `Weather Outfit Suggestion Agent`, accessible via WhatsApp usi
 ## How it works
 1. A user sends a WhatsApp message (e.g., “Paris” or “Outfits Paris").
 2. Twilio forwards the message to the Flask webhook (`/reply_whatsapp`).
-3. The webhook calls the Weather Outfit Agent, which fetches and summarizes today’s weather.
-4. Flask returns a TwiML response to Twilio, which delivers the weather summary and outfit recommendations back to the user on WhatsApp.
+3. The webhook calls the Weather Outfit Agent, which fetches and summarizes today’s weather and generates outfit recommendations based on the weather.
+4. It then delivers the weather summary and outfit recommendations back to the user on WhatsApp.
 
+<div align="center">
+
+![Demo of WhatsApp Weather Outfit Agent](./assets/demo.gif)
+
+</div>
 
 ## Requirements
 To run this project, you will need:
